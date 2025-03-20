@@ -12,22 +12,38 @@ const bot = new Telegraf(BOT_TOKEN);
 export async function handleStartCommand(ctx) {
   const COMMAND = "/start";
   const { message } = ctx;
+  const channelUrl = "https://t.me/og_chasers"
 
   // Welcome message with Markdown formatting
   const reply = `
-🚀 Welcome to *OG Signal Bot*! 
+🔥 Are you ready to take your crypto game to the next level? 🔥  
+Join *The OG Chasers* today and get access to:
 
-Get real-time crypto signals, investment tips, and market insights from *The OG Chasers*. 
-Join our community and unlock the potential to earn up to $1000 daily! 💰
+💎 *Real-time crypto signals* that help you stay ahead of the market.
+📈 *Expert investment tips* to maximize your profits.
+⚡️ *Exclusive content* for smart investors like you.
 
-🔗 Follow us on Telegram: [Join The OG Chasers](https://t.me/YourChannelUsername)
+💰 Unlock the potential to earn up to *$1000 daily* with our proven strategies!
+
+🔗 Join the community now: [Click here to join The OG Chasers](${channelUrl})
+
+Don’t miss out—your crypto journey starts HERE! 🎯
   `;
 
   try {
     await ctx.reply(reply, {
-      parse_mode: "Markdown",
-      reply_to_message_id: message?.message_id,
-    });
+  parse_mode: "Markdown",
+  reply_markup: {
+    inline_keyboard: [
+      [
+        {
+          text: "🚀 Join The OG Chasers Now!",
+          url: channelUrl
+        },
+      ],
+    ],
+  },
+});
     console.log(`Reply to ${COMMAND} command sent successfully.`);
   } catch (error) {
     console.error(`Something went wrong with the ${COMMAND} command:`, error);
