@@ -52,7 +52,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     }
 
     // Handle incoming updates from Telegram
-    if (query.secret_hash === SECRET_HASH) {
+    if (query.secret_hash == SECRET_HASH) {
       await bot.handleUpdate(body);
     }
   } catch (error) {
