@@ -12,20 +12,19 @@ const bot = new Telegraf(BOT_TOKEN);
 export async function handleStartCommand(ctx) {
   const COMMAND = "/start";
   const { message } = ctx;
-  const channelUrl = "https://t.me/og_chasers"
+  const channelUrl = "t.me/redps_proxies"
 
   // Welcome message with Markdown formatting
   const reply = `
-🔥 Are you ready to take your crypto game to the next level? 🔥  
-Join *The OG Chasers* today and get access to:
+🔥 Ready to boost your proxy game? 🔥
+Join RDPs & Residential Socks5 and get free Residential Socks5 & Mobile proxies—no trials, no payments, just full access!
 
-💎 *Real-time crypto signals* that help you stay ahead of the market.
-📈 *Expert investment tips* to maximize your profits.
-⚡️ *Exclusive content* for smart investors like you.
+🌍 Tap into 30M+ clean IPs with 0 fraud score
+📍 Enjoy country targeting for precision control
+⚡ Surf at blazing 4G speeds—fast and reliable
+🖥️ RDPs coming soon to expand your toolkit
 
-💰 Unlock the potential to earn up to *$1000 daily* with our proven strategies!
-
-🔗 Join the community now: [Click here to join The OG Chasers](${channelUrl})
+🔗 Join the community now: [Click here to join RDPs & Residential Socks5](${channelUrl})
 
 Don’t miss out—your crypto journey starts HERE! 🎯
   `;
@@ -37,7 +36,7 @@ Don’t miss out—your crypto journey starts HERE! 🎯
     inline_keyboard: [
       [
         {
-          text: "🚀 Join The OG Chasers Now!",
+          text: "🚀 Join RDPs & Residential Socks5 Now!",
           url: channelUrl
         },
       ],
