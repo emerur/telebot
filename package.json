@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/jsjoeio/telegram-bot-template#readme",
   "dependencies": {
-    "telegraf": "3"
+    "telegraf": "3",
+     "next": "14.0.0"
   },
   "devDependencies": {
     "@types/node": "^15.3.0",
