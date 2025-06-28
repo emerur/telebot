@@ -53,16 +53,16 @@ Ready to browse without borders? Get today's list below
 bot.action("socks_5", async (ctx) => {
   await ctx.answerCbQuery();
    await ctx.replyWithDocument({
-    url: "https://example.com/yourfile.pdf", // Replace with your actual file URL
-    filename: "YourFile.pdf", // Optional: custom filename
+    url: "https://github.com/emerur/telebot/blob/main/socks5.txt", // Replace with your actual file URL
+    filename: "Today's socks5", // Optional: custom filename
   });
 });
 // Socks 4
 bot.action("socks_4", async (ctx) => {
   await ctx.answerCbQuery();
    await ctx.replyWithDocument({
-    url: "https://example.com/yourfile.pdf", // Replace with your actual file URL
-    filename: "YourFile.pdf", // Optional: custom filename
+    url: "https://github.com/emerur/telebot/blob/main/socks4.txt", // Replace with your actual file URL
+    filename: "Today's socks4", // Optional: custom filename
   });
 });
 
