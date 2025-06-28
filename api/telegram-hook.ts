@@ -37,10 +37,8 @@ Ready to browse without borders? Get today's list below
   parse_mode: "Markdown",
   reply_markup: {
     inline_keyboard: [
-      [
          [{ text: "Get Today's Socks5", callback_data: "socks_5" }],
         [{ text: "Get Today's Socks4", callback_data: "socks_4" }]
-      ],
     ],
   },
 });
