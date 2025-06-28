@@ -12,22 +12,24 @@ const bot = new Telegraf(BOT_TOKEN);
 export async function handleStartCommand(ctx) {
   const COMMAND = "/start";
   const { message } = ctx;
-  const channelUrl = "t.me/redps_proxies"
-
+  
   // Welcome message with Markdown formatting
   const reply = `
-🔥 Ready to boost your proxy game? 🔥
-Join RDPs & Residential Socks5 and get free Residential Socks5 & Mobile proxies—no trials, no payments, just full access!
+  Unlock 100% Free VPN Access — No Limits, No Trials
 
-🌍 Tap into 30M+ clean IPs with 0 fraud score
-📍 Enjoy country targeting for precision control
-⚡ Surf at blazing 4G speeds—fast and reliable
-🖥️ RDPs coming soon to expand your toolkit
+Enjoy fast, secure, and private VPN connections with zero cost.
+No sign-ups. No restrictions.
 
-🔗 Join the community now: [Click here to join RDPs & Residential Socks5](${channelUrl})
+Instantly connect to global servers
 
-Don’t miss out—your crypto journey starts HERE! 🎯
-  `;
+Stay protected on public Wi-Fi and keep your data safe
+
+High-speed performance for smooth browsing
+
+Works on all devices — anytime, anywhere
+
+Ready to browse without borders? Get today's list below
+ `;
 
   try {
     await ctx.reply(reply, {
@@ -35,10 +37,8 @@ Don’t miss out—your crypto journey starts HERE! 🎯
   reply_markup: {
     inline_keyboard: [
       [
-        {
-          text: "🚀 Join RDPs & Residential Socks5 Now!",
-          url: channelUrl
-        },
+         [{ text: "Get Today's Socks5", callback_data: "socks_5" }],
+        [{ text: "Get Today's Socks4", callback_data: "socks_4" }]
       ],
     ],
   },
@@ -48,6 +48,23 @@ Don’t miss out—your crypto journey starts HERE! 🎯
     console.error(`Something went wrong with the ${COMMAND} command:`, error);
   }
 }
+
+// Socks 5
+bot.action("socks_5", async (ctx) => {
+  await ctx.answerCbQuery();
+   await ctx.replyWithDocument({
+    url: "https://example.com/yourfile.pdf", // Replace with your actual file URL
+    filename: "YourFile.pdf", // Optional: custom filename
+  });
+});
+// Socks 4
+bot.action("socks_4", async (ctx) => {
+  await ctx.answerCbQuery();
+   await ctx.replyWithDocument({
+    url: "https://example.com/yourfile.pdf", // Replace with your actual file URL
+    filename: "YourFile.pdf", // Optional: custom filename
+  });
+});
 
 // Register the /start command handler
 bot.command("start", async (ctx) => {
@@ -61,19 +78,26 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     // Set webhook if requested
     if (query.setWebhook === "true") {
-      const webhookUrl = `${process.env.VERCEL_URL}/api/telegram-hook?secret_hash=${SECRET_HASH}`;
-      const isSet = await bot.telegram.setWebhook(webhookUrl);
-      console.log(`Set webhook to ${webhookUrl}: ${isSet}`);
+     const webhookUrl = `${process.env.VERCEL_URL || "https://your-domain.vercel.app"}/api/webhook`
+    await bot.telegram.setWebhook(webhookUrl)
+
+    return NextResponse.json({
+      success: true,
+      message: "Webhook set successfully",
+      url: webhookUrl,
+    })
     }
 
-    // Handle incoming updates from Telegram
-    if (query.secret_hash == SECRET_HASH) {
+    // Handle incoming updates from Telegram  
       await bot.handleUpdate(body);
-    }
+  
+    return NextResponse.json({
+      ok: true,
+    })
   } catch (error) {
-    console.error("Error handling Telegram update:", error.toString());
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
 
   // Acknowledge the request with Telegram
-  res.status(200).send("OK");
+  // res.status(200).send("OK");
 };
