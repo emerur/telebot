@@ -82,21 +82,16 @@ export default async (req: VercelRequest, res: VercelResponse) => {
      const webhookUrl = `${process.env.VERCEL_URL || "https://your-domain.vercel.app"}/api/webhook`
     await bot.telegram.setWebhook(webhookUrl)
 
-    return NextResponse.json({
-      success: true,
-      message: "Webhook set successfully",
-      url: webhookUrl,
-    })
+    return res.status(200).send("OK");
     }
 
     // Handle incoming updates from Telegram  
       await bot.handleUpdate(body);
   
-    return NextResponse.json({
-      ok: true,
+    return res.status(200).send("OK");
     })
   } catch (error) {
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    return res.json({ error: "Internal server error" }, { status: 500 })
   }
 
   // Acknowledge the request with Telegram
