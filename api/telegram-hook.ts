@@ -1,4 +1,5 @@
-import { VercelRequest, VercelResponse,NextResponse } from "@vercel/node";
+import { VercelRequest, VercelResponse } from "@vercel/node";
+import {  NextResponse } from "next/server"
 import { Telegraf } from "telegraf";
 
 // Environment variables
