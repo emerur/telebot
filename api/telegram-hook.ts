@@ -79,7 +79,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     // Set webhook if requested
     if (query.setWebhook === "true") {
-     const webhookUrl = `${process.env.WEBHOOKK_URL`
+     const webhookUrl = `${process.env.WEBHOOKK_URL}`
     await bot.telegram.setWebhook(webhookUrl)
 
     return res.status(200).send("OK");
