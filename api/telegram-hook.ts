@@ -17,16 +17,16 @@ export async function handleStartCommand(ctx) {
 
   // Welcome message with Markdown formatting
   const reply = `
-🚀🚀🔥🔥 UNLOCK FREE MONEY-MAKING METHODS + UNLIMITED PROXIES! 🤑🤑🚨🚨
+🚀 UNLOCK FREE MONEY-MAKING METHODS + UNLIMITED PROXIES! 🤑🤑
 
 💸 Tired of scams? Get REAL cash with these 100% FREE methods!
 🌟 Discover the ULTIMATE money-making methods that will change your life FOREVER! 
 🌟 No experience required - we provide step-by-step blueprints to guide you to financial freedom! 💰💰
 
 🔥 What’s Inside?
-🏦 Bank Logs & CC Methods (Daily Updates!)
-🏦 Free Cashout Walkthroughs (Even for Beginners!)
-🏦 2025 Cashapp Methods 🔥(Updated) 
+🏦 Bank Logs & CC Methods 
+🏦 Free Cashout Walkthroughs
+🏦 2025 Cashapp Methods 🔥
 ✅ Premium Proxies & Tools (Zero Cost, No Signup!)
 
 🛡 Protect your identity with our top-grade anonymity solutions: 
@@ -35,9 +35,9 @@ export async function handleStartCommand(ctx) {
 ✅ ZERO Fraud Score - 100% Untraceable 
 
 🎯 Don't waste another second grinding - start earning the SMART way! 
-🎯⚡️ Unrivaled resources and support - COMPLETELY FREE! No catch! ⚡️
+🎯 Unrivaled resources and support - COMPLETELY FREE! No catch!
 
-👇 Seize this life-changing opportunity NOW! 👇 🔗 UNLOCK YOUR WEALTH TODAY!
+👇 Seize this life-changing opportunity NOW! 👇 🔗 [UNLOCK YOUR WEALTH TODAY!](${targetUrl})
 `;
 
   try {
