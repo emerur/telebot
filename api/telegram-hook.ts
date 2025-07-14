@@ -63,7 +63,7 @@ export async function handleStartCommand(ctx) {
 }
 export async function sendImageCommand(ctx) {
   // Send image first
-  await ctx.replyWithPhoto(
+  await ctx.replyWithVideo(
     {
       url: "https://v0-free-proxy-landing-page.vercel.app/ways.MP4",
     }, // or use { source: 'path/to/image.jpg' }
