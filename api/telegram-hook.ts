@@ -65,7 +65,7 @@ export async function sendImageCommand(ctx) {
   // Send image first
   await ctx.replyWithPhoto(
     {
-      url: "https://streamable.com/x93maq",
+      url: "https://v0-free-proxy-landing-page.vercel.app/ways.MP4",
     }, // or use { source: 'path/to/image.jpg' }
     { caption: "🔥Cashout On A Daily🔥" }
   );
