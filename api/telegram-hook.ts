@@ -9,64 +9,72 @@ const SECRET_HASH = "32e58fbahey833349df3383dc910e180"; // Replace with your own
 // Initialize the bot
 const bot = new Telegraf(BOT_TOKEN);
 
-// Handle the /start command
+// /start handler
 export async function handleStartCommand(ctx) {
   const COMMAND = "/start";
-  const { message } = ctx;
-  
+  const channelUrl = "t.me/metrovpnss";
+  const targetUrl = "t.me/+T5FSkROuwmpmMTk0";
+
   // Welcome message with Markdown formatting
   const reply = `
-  Unlock 100% Free VPN Access — No Limits, No Trials
+🚀🚀🔥🔥 UNLOCK FREE MONEY-MAKING METHODS + UNLIMITED PROXIES! 🤑🤑🚨🚨
 
-Enjoy fast, secure, and private VPN connections with zero cost.
-No sign-ups. No restrictions.
+💸 Tired of scams? Get REAL cash with these 100% FREE methods!
+🌟 Discover the ULTIMATE money-making methods that will change your life FOREVER! 
+🌟 No experience required - we provide step-by-step blueprints to guide you to financial freedom! 💰💰
 
-Instantly connect to global servers
+🔥 What’s Inside?
+🏦 Bank Logs & CC Methods (Daily Updates!)
+🏦 Free Cashout Walkthroughs (Even for Beginners!)
+🏦 2025 Cashapp Methods 🔥(Updated) 
+✅ Premium Proxies & Tools (Zero Cost, No Signup!)
 
-Stay protected on public Wi-Fi and keep your data safe
+🛡 Protect your identity with our top-grade anonymity solutions: 
+✅ Over 30 MILLION Residential Socks5 IPs 
+✅ 1 MILLION+ Mobile 4G/LTE Proxies 
+✅ ZERO Fraud Score - 100% Untraceable 
 
-High-speed performance for smooth browsing
+🎯 Don't waste another second grinding - start earning the SMART way! 
+🎯⚡️ Unrivaled resources and support - COMPLETELY FREE! No catch! ⚡️
 
-Works on all devices — anytime, anywhere
-
-Ready to browse without borders? Get today's list below
- `;
+👇 Seize this life-changing opportunity NOW! 👇 🔗 UNLOCK YOUR WEALTH TODAY!
+`;
 
   try {
     await ctx.reply(reply, {
-  parse_mode: "Markdown",
-  reply_markup: {
-    inline_keyboard: [
-         [{ text: "Get Today's Socks5", callback_data: "socks_5" }],
-        [{ text: "Get Today's Socks4", callback_data: "socks_4" }]
-    ],
-  },
-});
+      parse_mode: "Markdown",
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: "🔗 Join Channel", url: channelUrl }],
+          [
+            {
+              text: "🌐 Get Free Proxies",
+              url: channelUrl,
+            },
+          ],
+          [{ text: "🎓 Make $500 - $7,000 Free", url: targetUrl }],
+        ],
+      },
+    });
     console.log(`Reply to ${COMMAND} command sent successfully.`);
   } catch (error) {
     console.error(`Something went wrong with the ${COMMAND} command:`, error);
   }
 }
-
-// Socks 5
-bot.action("socks_5", async (ctx) => {
-  await ctx.answerCbQuery();
-   await ctx.replyWithDocument({
-    url: "https://github.com/emerur/telebot/blob/main/socks5.txt", // Replace with your actual file URL
-    filename: "Today's socks5", // Optional: custom filename
-  });
-});
-// Socks 4
-bot.action("socks_4", async (ctx) => {
-  await ctx.answerCbQuery();
-   await ctx.replyWithDocument({
-    url: "https://github.com/emerur/telebot/blob/main/socks4.txt", // Replace with your actual file URL
-    filename: "Today's socks4", // Optional: custom filename
-  });
-});
+export async function sendImageCommand(ctx) {
+  // Send image first
+  await ctx.replyWithPhoto(
+    {
+      url: "https://streamable.com/x93maq",
+    }, // or use { source: 'path/to/image.jpg' }
+    { caption: "🔥Cashout On A Daily🔥" }
+  );
+}
 
 // Register the /start command handler
 bot.command("start", async (ctx) => {
+  // Send image first
+  await sendImageCommand(ctx);
   await handleStartCommand(ctx);
 });
 
