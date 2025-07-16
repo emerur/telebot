@@ -17,27 +17,19 @@ export async function handleStartCommand(ctx) {
 
   // Welcome message with Markdown formatting
   const reply = `
-🚀 UNLOCK FREE MONEY-MAKING METHODS + UNLIMITED PROXIES! 🤑🤑
+Discover FREE Money-Making Methods! 💸🚀🤑🤑
 
-💸 Tired of scams? Get REAL cash with these 100% FREE methods!
-🌟 Discover the ULTIMATE money-making methods that will change your life FOREVER! 
-🌟 No experience required - we provide step-by-step blueprints to guide you to financial freedom! 💰💰
+Tired of scams? Get REAL cash with these 100% FREE methods! 💸
+No experience required - step-by-step blueprints to guide you! 💰💰 
 
-🔥 What’s Inside?
+What’s Inside?
 🏦 Bank Logs & CC Methods 
 🏦 Free Cashout Walkthroughs
 🏦 2025 Cashapp Methods 🔥
-✅ Premium Proxies & Tools (Zero Cost, No Signup!)
+ 
+All completely FREE - no hidden costs or signups!
 
-🛡 Protect your identity with our top-grade anonymity solutions: 
-✅ Over 30 MILLION Residential Socks5 IPs 
-✅ 1 MILLION+ Mobile 4G/LTE Proxies 
-✅ ZERO Fraud Score - 100% Untraceable 
-
-🎯 Don't waste another second grinding - start earning the SMART way! 
-🎯 Unrivaled resources and support - COMPLETELY FREE! No catch!
-
-👇 Seize this life-changing opportunity NOW! 👇 🔗 [UNLOCK YOUR WEALTH TODAY!](${targetUrl})
+👇 Seize this life-changing opportunity NOW! 👇 🔗 [Join Here](${targetUrl})
 `;
 
   try {
@@ -45,10 +37,9 @@ export async function handleStartCommand(ctx) {
       parse_mode: "Markdown",
       reply_markup: {
         inline_keyboard: [
-          [{ text: "🔗 Join Channel", url: channelUrl }],
           [
             {
-              text: "🌐 Get Free Proxies",
+              text: "🌐 Free VPNs/Proxies (Socks5 & Socks4)",
               url: channelUrl,
             },
           ],
@@ -62,13 +53,35 @@ export async function handleStartCommand(ctx) {
   }
 }
 export async function sendImageCommand(ctx) {
-  // Send image first
-  await ctx.replyWithVideo(
+  const media = [
     {
-      url: "https://v0-free-proxy-landing-page.vercel.app/ways.MP4",
-    }, // or use { source: 'path/to/image.jpg' }
-    { caption: "🔥Cashout On A Daily🔥" }
-  );
+      type: "photo",
+      media:
+        "https://raw.githubusercontent.com/emerur/limitless/main/photo_6028285951022843801_y.jpg",
+    },
+    {
+      type: "photo",
+      media:
+        "https://raw.githubusercontent.com/emerur/limitless/main/photo_6030537750836529162_y.jpg",
+    },
+    {
+      type: "photo",
+      media:
+        "https://raw.githubusercontent.com/emerur/limitless/main/photo_6032721892030400596_y.jpeg",
+    },
+    {
+      type: "photo",
+      media:
+        "https://raw.githubusercontent.com/emerur/limitless/main/photo_6034973691844085628_y.jpg",
+    },
+    {
+      type: "photo",
+      media:
+        "https://raw.githubusercontent.com/emerur/limitless/main/photo_6034973691844085630_y.jpg",
+    },
+  ];
+  // Send image first
+  await ctx.replyWithMediaGroup(media);
 }
 
 // Register the /start command handler
